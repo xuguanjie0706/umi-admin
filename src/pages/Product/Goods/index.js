@@ -1,7 +1,7 @@
 /*
  * @Author: xgj
  * @since: 2020-05-23 10:40:31
- * @lastTime: 2020-11-04 11:48:41
+ * @lastTime: 2020-11-05 15:24:09
  * @LastAuthor: xgj
  * @FilePath: /umi-admin/src/pages/Product/Goods/index.js
  * @message:权益划转
@@ -183,13 +183,13 @@ const Custom = (props) => {
         </Button> */}
       </>}
 
-        {/* <Popconfirm
+        <Popconfirm
           title="确定要删除吗？"
           onConfirm={() => handleDelete(text)}>
           <Button type="link" >
             删除
         </Button>
-        </Popconfirm> */}
+        </Popconfirm>
 
       </>,
     },

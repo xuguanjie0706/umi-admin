@@ -1,7 +1,7 @@
 /*
  * @Author: xgj
  * @since: 2020-05-23 10:40:31
- * @lastTime: 2020-11-04 11:35:21
+ * @lastTime: 2020-11-05 15:24:23
  * @LastAuthor: xgj
  * @FilePath: /umi-admin/src/pages/Product/Type/index.js
  * @message:权益划转
@@ -160,19 +160,19 @@ const Custom = (props) => {
         <Button type="link" onClick={() => handleEdit(text)}>
           编辑
         </Button>
-        <Divider type="vertical" ></Divider>
+        {/* <Divider type="vertical" ></Divider>
         <Button type="link" onClick={() => handleAdd(text)}>
           补货
-        </Button>
+        </Button> */}
       </>}
 
-        {/* <Popconfirm
+        <Popconfirm
           title="确定要删除吗？"
           onConfirm={() => handleDelete(text)}>
           <Button type="link" >
             删除
         </Button>
-        </Popconfirm> */}
+        </Popconfirm>
 
       </>,
     },
