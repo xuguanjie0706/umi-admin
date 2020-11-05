@@ -1,0 +1,9 @@
+/lambda/
+/scripts
+/config
+/generators
+.history
+package.json
+.umi
+.umi-production
+.umi-test
