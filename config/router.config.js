@@ -80,28 +80,10 @@ export default [
               component: "@/pages/Product/Goods"
             },
             {
-              path: "typeList",
-              authority: 'Type',
-              name: "分类列表",
-              component: "@/pages/Product/Type"
-            },
-            {
-              path: "CardStatistics",
-              authority: 'CardStatistics',
-              name: "卡片分类",
-              component: "@/pages/Product/CardStatistics"
-            },
-            {
-              path: "ExchangeCard",
-              authority: 'ExchangeCard',
-              name: "卡片管理",
-              component: "@/pages/Product/ExchangeCard"
-            },
-            {
-              path: "ticketView",
-              authority: 'TicketView',
-              name: "卡券管理",
-              component: "@/pages/Product/TicketView"
+              path: "MetterList",
+              authority: 'Metter',
+              name: "实物列表",
+              component: "@/pages/Product/Metter"
             },
             ]
           },
@@ -114,12 +96,13 @@ export default [
               authority: 'OrderList',
               name: "订单列表",
               component: "@/pages/Order/OrderList"
-            }, {
-              path: "memberPay",
-              authority: 'memberPay',
-              name: "会员续费",
-              component: "@/pages/Order/MemberPay"
             },
+              //   {
+              //   path: "memberPay",
+              //   authority: 'memberPay',
+              //   name: "会员续费",
+              //   component: "@/pages/Order/MemberPay"
+              // },
             ]
           },
           {

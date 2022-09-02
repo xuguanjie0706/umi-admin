@@ -1,3 +1,11 @@
+/*
+ * @Author: xgj
+ * @since: 2022-08-30 20:25:00
+ * @lastTime: 2022-09-01 23:05:03
+ * @LastAuthor: xgj
+ * @FilePath: /umi-admin/src/pages/Product/Goods/Form.js
+ * @message: 
+ */
 import React, { useEffect, useState } from 'react';
 import { Form, Input, Select, Col, InputNumber, Upload, message } from 'antd';
 import CustomModalContainer from '@/components/Custom/CustomModalContainer';
@@ -36,9 +44,7 @@ const CustomForm = (props) => {
       isReady && <><Form.Item name="_id" hidden>
         <Input />
       </Form.Item>
-        <Form.Item name="_member" hidden initialValue={memberId}>
-          <Input />
-        </Form.Item>
+
         <Form.Item
           label="名称"
           name="name"
@@ -48,21 +54,10 @@ const CustomForm = (props) => {
         </Form.Item>
         <Form.Item
           label="描述"
-          name="value"
+          name="desc"
           rules={[{ required: true, message: '请输入描述' }]}
         >
           <Input.TextArea allowClear placeholder="请输入描述" />
-        </Form.Item>
-        <Form.Item
-          label="类型"
-          name="_type"
-          rules={[{ required: true, message: '请选择类型' }]}
-        >
-          <Select>
-            {
-              typeList.map(item => <Option value={item._id} key={item._id}>{item.name}</Option>)
-            }
-          </Select>
         </Form.Item>
         <Form.Item
           extra="推荐尺寸为160*160"
@@ -73,22 +68,22 @@ const CustomForm = (props) => {
           <CustomUpload styles={{ width: 160, height: 160 }} desc="图片上传" />
         </Form.Item>
         <Form.Item
-          label="图片详情"
-          name="imgs"
-          rules={[{ required: true, message: '请上传图片' }]}
-        >
-          <UploadPic accept="image/*" />
-        </Form.Item>
-        <Form.Item
-          label="库存"
-          name="num"
+          label="单品个数"
+          name="specs"
           rules={[{ required: true, message: '请输入数量' }]}
         >
           <InputNumber min={0} style={{ width: 200 }} allowClear placeholder="请输入数量" />
         </Form.Item>
         <Form.Item
+          label="原价"
+          name="originalPrice"
+          rules={[{ required: true, message: '请输入价格' }]}
+        >
+          <InputNumber style={{ width: 200 }} allowClear placeholder="请输入价格" />
+        </Form.Item>
+        <Form.Item
           label="价格"
-          name="price"
+          name="mailPrice"
           rules={[{ required: true, message: '请输入价格' }]}
         >
           <InputNumber style={{ width: 200 }} allowClear placeholder="请输入价格" />

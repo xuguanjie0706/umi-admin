@@ -68,7 +68,7 @@ export const editoradd = (data = {}) => {
 
 export const login = (data = {}) => {
   return request.post({
-    url: 'loginAdmin',
+    url: 'loginUser',
     data,
     gateway
   });

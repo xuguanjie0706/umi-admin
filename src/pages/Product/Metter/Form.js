@@ -3,26 +3,26 @@ import { Form, Input, Select, Col, InputNumber, Upload, message } from 'antd';
 import CustomModalContainer from '@/components/Custom/CustomModalContainer';
 import CustomUpload from '@/components/Custom/CustomApiFormItem/PeopleCardUpload';
 import UploadPic from '@/components/Custom/CustomApiFormItem/UploadPic';
-
+import api from "@/api"
 
 const { Option } = Select;
 
 const CustomForm = (props) => {
-  const { defaultData, setFieldsValue, memberId } = props;
+  const { defaultData, setFieldsValue, memberId, typeList = [] } = props;
 
   const [isReady, setIsReady] = useState(false);
   const initLoad = async () => {
+    // console.log(123);
     // try {
-    //   const r = await api.Role.getsomebysimple();
-    //   setRoleList(r);
-    // } catch (error) { }
+    //   const r = await api.Type.getsomebysimple();
+    //   console.log(r);
+    //   setTypeList(r);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
 
-  useEffect(() => {
-    initLoad();
-    // setIsShow(defaultData._id);
-  }, []);
 
   useEffect(() => {
     if (defaultData._id) {
@@ -36,9 +36,7 @@ const CustomForm = (props) => {
       isReady && <><Form.Item name="_id" hidden>
         <Input />
       </Form.Item>
-        <Form.Item name="_member" hidden initialValue={memberId}>
-          <Input />
-        </Form.Item>
+
         <Form.Item
           label="名称"
           name="name"
@@ -48,7 +46,7 @@ const CustomForm = (props) => {
         </Form.Item>
         <Form.Item
           label="描述"
-          name="value"
+          name="desc"
           rules={[{ required: true, message: '请输入描述' }]}
         >
           <Input.TextArea allowClear placeholder="请输入描述" />
@@ -57,32 +55,24 @@ const CustomForm = (props) => {
           extra="推荐尺寸为160*160"
           label="首图"
           name="img"
-        // rules={[{ required: true, message: '请上传图片' }]}
+          rules={[{ required: true, message: '请上传图片' }]}
         >
           <CustomUpload styles={{ width: 160, height: 160 }} desc="图片上传" />
         </Form.Item>
-        {/* <Form.Item
-          label="图片详情"
-          name="imgs"
-          rules={[{ required: true, message: '请上传图片' }]}
-        >
-          <UploadPic accept="image/*" />
-        </Form.Item> */}
-        {/* <Form.Item
-          label="库存"
-          name="num"
+        <Form.Item
+          label="单品个数"
+          name="specs"
           rules={[{ required: true, message: '请输入数量' }]}
         >
           <InputNumber min={0} style={{ width: 200 }} allowClear placeholder="请输入数量" />
-        </Form.Item> */}
-        {/* <Form.Item
+        </Form.Item>
+        <Form.Item
           label="价格"
-          name="price"
+          name="mailPrice"
           rules={[{ required: true, message: '请输入价格' }]}
         >
           <InputNumber style={{ width: 200 }} allowClear placeholder="请输入价格" />
-        </Form.Item> */}
-      </>
+        </Form.Item></>
     }
     </>
   );

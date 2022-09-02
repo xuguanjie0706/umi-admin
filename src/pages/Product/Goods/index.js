@@ -1,7 +1,7 @@
 /*
  * @Author: xgj
  * @since: 2020-05-23 10:40:31
- * @lastTime: 2020-11-04 11:48:41
+ * @lastTime: 2022-09-01 23:05:33
  * @LastAuthor: xgj
  * @FilePath: /umi-admin/src/pages/Product/Goods/index.js
  * @message:权益划转
@@ -87,26 +87,26 @@ const Custom = (props) => {
   /* 初始化 */
   const initLoad = async () => {
     try {
-      const r = await api.Type.getsomebysimple();
-      console.log(r);
-      setTypeList(r);
+      // const r = await api.Type.getsomebysimple();
+      // console.log(r);
+      // setTypeList(r);
     } catch (error) {
       console.log(error);
     }
   };
 
   const initData = async () => {
-    const r = await api.User.getsomebysimple({
-      isUser: 2
-    });
-    setMemberList(r);
+    // const r = await api.User.getsomebysimple({
+    //   isUser: 2
+    // });
+    // setMemberList(r);
   };
   /* ******* 监听 ******* */
   useEffect(() => {
     initLoad();
-    if (+isUser === 1) {
-      initData();
-    }
+    // if (+isUser === 1) {
+    //   initData();
+    // }
     // console.log(props);
   }, []);
   /* ******* 监听 ******* */
@@ -137,10 +137,9 @@ const Custom = (props) => {
     },
     {
       title: '描述',
-      dataIndex: 'value',
-      key: 'value',
+      dataIndex: 'desc',
+      key: 'desc',
       align: 'center',
-      width: 250,
       ellipsis: true
     },
     {
@@ -148,19 +147,33 @@ const Custom = (props) => {
       dataIndex: 'img',
       key: 'img',
       align: 'center',
+      width: 120,
       render: text => <img width="100" height="100" src={config.url + text} alt="" />
     },
     {
-      title: '库存',
-      dataIndex: 'num',
-      key: 'num',
+      title: '单品数量',
+      dataIndex: 'specs',
+      key: 'specs',
+      align: 'center',
+    },
+    {
+      title: '原价',
+      dataIndex: 'originalPrice',
+      key: 'originalPrice',
       align: 'center',
     },
     {
       title: '价格',
-      dataIndex: 'price',
-      key: 'price',
+      dataIndex: 'mailPrice',
+      key: 'mailPrice',
       align: 'center',
+    },
+    {
+      title: '单品价格',
+      dataIndex: 'onePrice',
+      key: 'onePrice',
+      align: 'center',
+      render: (text, row) => <span>{(row.mailPrice / row.specs).toFixed(2)}</span>
     },
     {
       title: '新增时间',
@@ -173,25 +186,20 @@ const Custom = (props) => {
       title: '操作',
       align: 'center',
       key: 'action',
-      render: (text) => <>{memberId === text._member && <>
+      render: (text) => <>
         <Button type="link" onClick={() => handleEdit(text)}>
           编辑
         </Button>
-        {/* <Divider type="vertical" ></Divider>
-        <Button type="link" onClick={() => handleAdd(text)}>
-          补货
-        </Button> */}
-      </>}
 
-        {/* <Popconfirm
+        <Popconfirm
           title="确定要删除吗？"
           onConfirm={() => handleDelete(text)}>
           <Button type="link" >
             删除
-        </Button>
-        </Popconfirm> */}
+          </Button>
+        </Popconfirm>
 
-      </>,
+      </>
     },
   ];
 
@@ -200,7 +208,7 @@ const Custom = (props) => {
       <SearchTable
         rowKey="_id"
         isUser={isUser}
-        request={api[fileName].page}
+        request={api[fileName].pagesimple}
         loading
         columns={columns}
         typeList={typeList}

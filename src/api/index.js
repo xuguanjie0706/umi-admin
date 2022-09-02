@@ -1,7 +1,7 @@
 /*
  * @Author: xgj
  * @since: 2020-06-08 13:52:17
- * @lastTime: 2020-11-04 11:31:47
+ * @lastTime: 2022-09-01 23:41:58
  * @LastAuthor: xgj
  * @FilePath: /umi-admin/src/api/index.js
  * @message:
@@ -26,6 +26,8 @@ import * as Weixin from './modules/Weixin';
 import * as PaymentFlow from './modules/PaymentFlow';
 import * as Pic from './modules/Pic';
 import * as Type from './modules/Type';
+import * as Matter from './modules/Matter';
+import * as Order from './modules/Order';
 
 
 export default {
@@ -42,4 +44,6 @@ export default {
   PaymentFlow,
   Pic,
   Type,
+  Matter,
+  Order,
 };

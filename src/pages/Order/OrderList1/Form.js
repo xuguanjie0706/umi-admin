@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Input, Select, Col, InputNumber, Upload, message } from 'antd';
 import CustomModalContainer from '@/components/Custom/CustomModalContainer';
+import { UNIT_ENUM } from '@/utils/enum';
 import CustomUpload from '@/components/Custom/CustomApiFormItem/PeopleCardUpload';
 import UploadPic from '@/components/Custom/CustomApiFormItem/UploadPic';
 
@@ -46,43 +47,35 @@ const CustomForm = (props) => {
         >
           <Input allowClear placeholder="请输入名称" />
         </Form.Item>
-        <Form.Item
+        {/* <Form.Item
           label="描述"
           name="value"
           rules={[{ required: true, message: '请输入描述' }]}
         >
-          <Input.TextArea allowClear placeholder="请输入描述" />
-        </Form.Item>
+          <Input allowClear placeholder="请输入描述" />
+        </Form.Item> */}
         <Form.Item
           extra="推荐尺寸为160*160"
           label="首图"
           name="img"
-        // rules={[{ required: true, message: '请上传图片' }]}
+          rules={[{ required: true, message: '请上传图片' }]}
         >
           <CustomUpload styles={{ width: 160, height: 160 }} desc="图片上传" />
         </Form.Item>
-        {/* <Form.Item
+        <Form.Item
           label="图片详情"
           name="imgs"
           rules={[{ required: true, message: '请上传图片' }]}
         >
-          <UploadPic accept="image/*" />
-        </Form.Item> */}
-        {/* <Form.Item
-          label="库存"
-          name="num"
-          rules={[{ required: true, message: '请输入数量' }]}
-        >
-          <InputNumber min={0} style={{ width: 200 }} allowClear placeholder="请输入数量" />
-        </Form.Item> */}
-        {/* <Form.Item
+          <UploadPic />
+        </Form.Item>
+        <Form.Item
           label="价格"
           name="price"
           rules={[{ required: true, message: '请输入价格' }]}
         >
           <InputNumber style={{ width: 200 }} allowClear placeholder="请输入价格" />
-        </Form.Item> */}
-      </>
+        </Form.Item></>
     }
     </>
   );

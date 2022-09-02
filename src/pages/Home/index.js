@@ -1,3 +1,11 @@
+/*
+ * @Author: xgj
+ * @since: 2022-08-30 20:25:00
+ * @lastTime: 2022-09-02 00:13:16
+ * @LastAuthor: xgj
+ * @FilePath: /umi-admin/src/pages/Home/index.js
+ * @message: 
+ */
 import React, { useEffect, useState } from 'react';
 import { Table, Button, Card, Statistic, Row, Col } from 'antd';
 import api from '@/api';
@@ -26,56 +34,28 @@ const Home = (props) => {
   }, []);
   return (
     <>
-      {isUser === '1' ? <Card title="欢迎您使用乐隐微信自助提货系统">
+      <Card title="欢迎您使用小卖部系统">
         <Row gutter={16}>
           <Col span={6}>
-            <Statistic title="今日新增商户" value={data[4]} />
+            <Statistic title="库存数量" value={data[4]} />
           </Col>
           <Col span={6}>
-            <Statistic title="商户总数" value={data[1]} />
+            <Statistic title="库存总价" value={data[4]} />
           </Col>
           <Col span={6}>
-            <Statistic precision={2} title="会员续费总额(元)" value={data[0][0] && (data[0][0].price / 100)} />
+            <Statistic title="买入总价" value={data[1]} />
           </Col>
           <Col span={6}>
-            <Statistic title="已兑换数/卡片总数" value={data[3]} suffix={`/ ${data[2]}`} />
+            <Statistic title="卖出总价" value={data[1]} />
+          </Col>
+          <Col span={6}>
+            <Statistic title="总买入数量" value={data[1]} />
+          </Col>
+          <Col span={6}>
+            <Statistic title="总卖出数量" value={data[1]} />
           </Col>
         </Row>
-      </Card> : <><Card title="欢迎您使用乐隐微信自助提货系统">
-        <Row gutter={16}>
-          <Col span={6}>
-            <Statistic title="今日兑换" value={data[3]} />
-          </Col>
-          <Col span={6}>
-            <Statistic title="最近一个月兑换" value={data[4]} />
-          </Col>
-          <Col span={6}>
-            <Statistic title="套餐总数" value={data[0].length} />
-          </Col>
-          <Col span={6}>
-            <Statistic title="已兑换数/卡片总数" value={data[2]} suffix={`/ ${data[1]}`} />
-          </Col>
-        </Row>
-        {/* <img src={url} alt="" /> */}
       </Card>
-          <Card title="会员信息" style={{ marginTop: 10 }}>
-            <Row gutter={16}>
-              <Col span={6}>
-                <Statistic groupSeparator="" title="会员手机号" value={phone} />
-              </Col>
-              <Col span={6}>
-                <Statistic title="身份" value={status ? '会员' : '非会员'} />
-              </Col>
-              <Col span={6}>
-                <Statistic title="会员截止日期" value={moment(overtime).format('YYYY-MM-DD')} />
-              </Col>
-              {/* <Col span={6}>
-            <Button style={{ marginTop: 16 }} type="primary">
-              立即充值
-            </Button>
-          </Col> */}
-            </Row>
-          </Card></>}
 
     </>
 
