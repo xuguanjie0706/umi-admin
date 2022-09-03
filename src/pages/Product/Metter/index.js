@@ -1,7 +1,7 @@
 /*
  * @Author: xgj
  * @since: 2020-05-23 10:40:31
- * @lastTime: 2022-09-02 00:09:16
+ * @lastTime: 2022-09-03 12:53:48
  * @LastAuthor: xgj
  * @FilePath: /umi-admin/src/pages/Product/Metter/index.js
  * @message:权益划转
@@ -31,7 +31,7 @@ const Custom = (props) => {
   const [addChild, setAddChild] = useState(null); // 新增弹窗
   const [tableChild, setTableChild] = useState(null); // 列表弹窗
   const [defaultData, setDefaultData] = useState({ id: 0 }); // 新增编辑默认值
-  const [typeList, setTypeList] = useState([]);
+  const [goodsList, setGoodsList] = useState([]);
   const [memberList, setMemberList] = useState([]);
   /* ******* 设置属性 *******  */
 
@@ -88,9 +88,8 @@ const Custom = (props) => {
   /* 初始化 */
   const initLoad = async () => {
     try {
-      // const r = await api.Type.getsomebysimple();
-      // console.log(r);
-      // setTypeList(r);
+      const r = await api.Goods.getsomebysimple();
+      setGoodsList(r);
     } catch (error) {
       console.log(error);
     }
@@ -217,14 +216,14 @@ const Custom = (props) => {
         request={api[fileName].page}
         loading
         columns={columns}
-        typeList={typeList}
+        goodsList={goodsList}
         onTableRef={tableRef}
         isReset={false}
         memberList={memberList}
         defaultSearchData={defaultSearchData}
       />
       <ModalForm
-        typeList={typeList}
+        goodsList={goodsList}
         formItemLayout={{ labelCol: { span: 6 }, wrapperCol: { span: 16 } }}
         onRef={modelRef}
         title={!defaultData._id ? '新增' : '编辑'}

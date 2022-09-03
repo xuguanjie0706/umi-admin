@@ -1,7 +1,15 @@
+/*
+ * @Author: xgj
+ * @since: 2022-08-30 20:25:00
+ * @lastTime: 2022-09-03 12:50:16
+ * @LastAuthor: xgj
+ * @FilePath: /umi-admin/src/pages/SettingManage/SettingView/Form.js
+ * @message: 
+ */
 import React, { useEffect, useState } from 'react';
 import { Form, Input, Select, Col, InputNumber, Upload, message } from 'antd';
 import CustomModalContainer from '@/components/Custom/CustomModalContainer';
-import { UNIT_ENUM } from '@/utils/enum';
+// import { UNIT_ENUM } from '@/utils/enum';
 
 
 const { Option } = Select;
@@ -9,7 +17,7 @@ const { Option } = Select;
 const CustomForm = (props) => {
   const { defaultData, setFieldsValue } = props;
 
-  const unitEnum = Object.entries(UNIT_ENUM);
+  // const unitEnum = Object.entries(UNIT_ENUM);
   // const [isShow, setIsShow] = useState(false);
   const initLoad = async () => {
     // try {
@@ -51,7 +59,7 @@ const CustomForm = (props) => {
       >
         <Input allowClear placeholder="请输入内容" />
       </Form.Item>
-      <Form.Item
+      {/* <Form.Item
         label="单位"
         name="unit"
         rules={[{ required: true, message: '请选择单位' }]}
@@ -59,7 +67,7 @@ const CustomForm = (props) => {
         <Select placeholder="请选择单位">
           {unitEnum.map(item => <Option key={item[1]} value={item[1]}>{item[1]}</Option>)}
         </Select>
-      </Form.Item>
+      </Form.Item> */}
     </>
   );
 };

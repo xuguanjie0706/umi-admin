@@ -1,7 +1,7 @@
 /*
  * @Author: xgj
  * @since: 2022-09-01 00:51:22
- * @lastTime: 2022-09-02 00:03:04
+ * @lastTime: 2022-09-03 12:50:44
  * @LastAuthor: xgj
  * @FilePath: /umi-admin/src/pages/Order/OrderList/Search.js
  * @message: 
@@ -35,12 +35,16 @@ const Search = (props) => {
     <Row>
       <Col xs={24} sm={12} md={8} lg={6} xl={6} xxl={6}>
         <Form.Item
-          name="name"
+          name="_goods"
           label="名称"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
         >
-          <Select allowClear placeholder="请选择名称" >
+          <Select showSearch filterOption={(input, option) =>
+            option.children
+              .toLowerCase()
+              .includes(input.toLowerCase())
+          } allowClear placeholder="请选择名称" >
             {
               goodsList.map(item => <Option value={item._id} key={item._id}>{item.name}</Option>)
             }
