@@ -121,9 +121,9 @@ export const page = (data = {}) => {
  * @return {object} 接口对象
  */
 
-export const addNum = (data = {}) => {
+export const allPrice = (data = {}) => {
   return request.post({
-    url: 'addNum',
+    url: 'allPrice',
     data,
     gateway
   });
