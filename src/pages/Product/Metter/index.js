@@ -1,7 +1,7 @@
 /*
  * @Author: xgj
  * @since: 2020-05-23 10:40:31
- * @lastTime: 2022-09-03 12:53:48
+ * @lastTime: 2022-09-03 13:00:40
  * @LastAuthor: xgj
  * @FilePath: /umi-admin/src/pages/Product/Metter/index.js
  * @message:权益划转
@@ -219,6 +219,7 @@ const Custom = (props) => {
         goodsList={goodsList}
         onTableRef={tableRef}
         isReset={false}
+        showTotal={total => `总 ${total} 箱`}
         memberList={memberList}
         defaultSearchData={defaultSearchData}
       />
